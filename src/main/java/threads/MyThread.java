@@ -5,7 +5,6 @@ import org.apache.log4j.Logger;
 
 public class MyThread extends Thread {
     private static final Logger logger = Logger.getLogger(MyThread.class);
-    private static final int MAX_INT = 100;
 
     private Counter counter;
 
@@ -16,7 +15,7 @@ public class MyThread extends Thread {
     @Override
     public void run() {
         logger.info("MyThread " + Thread.currentThread().getName() + " is running");
-        while (counter.getCount() < MAX_INT) {
+        while (counter.getCount() < counter.getMaxInt()) {
             counter.increment();
             logger.info(Thread.currentThread().getName()
                     + ": counter = " + counter.getCount());
